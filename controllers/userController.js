@@ -21,7 +21,7 @@ const createNewUser = asyncHandler( async (req , res) => {
   const {username , password , roles} = req.body;
   // confirm data
   if(!username || !password || !Array.isArray(roles) || !roles.length){
-    res.status(400).json({message : 'All fields are required'});
+    return res.status(400).json({message : 'All fields are required'});
   }
   // check duplicate
   const duplicate = await User.findOne({username}).lean().exec();
@@ -107,3 +107,11 @@ const deleteUser = asyncHandler( async (req , res) => {
 }) 
 
 module.exports = {getAllUsers , createNewUser , updateUser , deleteUser};
+
+/*
+{
+  "username" : "DanD",
+  "password" : "DanD12345",
+  "roles" : ["Employee" , "Manager" , "Admin"]
+}
+*/
