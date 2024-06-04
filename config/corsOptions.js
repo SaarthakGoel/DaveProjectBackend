@@ -1,7 +1,6 @@
 const allowedOrigins = require('./allowedOrigins');
 
 const corsOptions = {
-  /*
   origin : (origin , callback) => {
     if(allowedOrigins.indexOf(origin) !== -1 || !origin){
       callback(null , true);
@@ -9,8 +8,6 @@ const corsOptions = {
       callback(new Error('not allowed by cors'))
     }
   },
-  */
- origin : 'https://technotes-dmd7.onrender.com/',
   credentials: true,
   optionsSuccessStatus : 200
 }
